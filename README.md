@@ -3,14 +3,14 @@
 
 **Candidate Evaluation Submission**  
 **Service:** PCR Protocol Management Service (`pcr-protocol-service`)  
-**Implementation Stack:** Java 23 / Spring Boot 3.3.2 / Spring Data JPA / H2 / Jakarta Validation / JUnit 5 / Swagger OpenAPI 3  
+**Implementation Stack:** Java 23 / Spring Boot 3 / Spring Data JPA / H2 / Jakarta Validation / JUnit 5 / Swagger OpenAPI 3  
 
 ---
 
 ## Executive Overview
 The **PCR Protocol Management Service** serves as the core backend control plane for lab automation at Sciverse Solutions. It enables lab technicians to define, update, soft-delete, and execute Polymerase Chain Reaction (PCR) temperature-cycling protocols while ensuring strict data validation, optimistic concurrency control, structured error handling, and auditability.
 
-The accompanying backend implementation in `pcr-protocol-service` has been fully built, compiled, and verified on Java 23 with Spring Boot 3.3.2, achieving **100% test pass rate across all 15 unit and integration tests**.
+The accompanying backend implementation in `pcr-protocol-service` has been fully built, compiled, and verified on Java 23 with Spring Boot 3, achieving **100% test pass rate across all 15 unit and integration tests**.
 
 ---
 
@@ -32,16 +32,12 @@ The complete evaluation documentation has been modularized into focused document
 ## Quickstart: How to Build & Run Locally
 
 ### Prerequisites
-- **Java Development Kit (JDK):** JDK 21 or JDK 23+ (Installed at `C:\Program Files\Java\jdk-23` or configured in system `JAVA_HOME`).
-- **Build Tool:** Apache Maven Wrapper (`mvnw.cmd` included in project root; no global Maven installation required).
+- **Java Development Kit (JDK):** JDK 21+
 
 ### 1. Run Automated Unit & Integration Test Suite
 From PowerShell or Terminal in `pcr-protocol-service/`:
 ```powershell
-# Set JAVA_HOME environment variable (PowerShell)
-$env:JAVA_HOME="C:\Program Files\Java\jdk-23"
-
-# Execute clean compile and test suite
+cd .\pcr-protocol-service\
 .\mvnw.cmd clean test
 ```
 *Expected Output:*
@@ -57,7 +53,6 @@ $env:JAVA_HOME="C:\Program Files\Java\jdk-23"
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
-- **Base Application URL:** `http://localhost:8080`
 - **Interactive Swagger UI API Specs:** `http://localhost:8080/swagger-ui.html`
 - **H2 In-Memory Database Console:** `http://localhost:8080/h2-console`  
   - *JDBC URL:* `jdbc:h2:mem:pcrdb`
@@ -71,34 +66,34 @@ $env:JAVA_HOME="C:\Program Files\Java\jdk-23"
 ### Code Architecture (`pcr-protocol-service/`)
 ```
 pcr-protocol-service/
-├── pom.xml                          (Spring Boot 3.3.2, H2, Validation, Springdoc OpenAPI)
-├── mvnw / mvnw.cmd                  (Maven Wrapper)
+├── pom.xml
+├── mvnw / mvnw.cmd
 └── src/
     ├── main/java/com/sciverse/platform/
-    │   ├── SciverseApplication.java         (Main Entrypoint)
+    │   ├── SciverseApplication.java
     │   ├── config/
-    │   │   ├── DataSeeder.java           (Seeds 2 standard protocols on startup)
-    │   │   └── OpenApiConfig.java        (Configures OpenAPI 3 / Swagger metadata)
+    │   │   ├── DataSeeder.java
+    │   │   └── OpenApiConfig.java
     │   ├── controller/
-    │   │   └── ProtocolController.java   (REST API Endpoints: Create, Get, Update, Delete, List)
+    │   │   └── ProtocolController.java
     │   ├── domain/
-    │   │   ├── Protocol.java             (JPA Entity with @Version & @ElementCollection)
-    │   │   ├── ProtocolStep.java         (@Embeddable step object with temperature/hold validations)
-    │   │   └── ProtocolStatus.java       (Enum: ACTIVE, DELETED)
+    │   │   ├── Protocol.java
+    │   │   ├── ProtocolStep.java
+    │   │   └── ProtocolStatus.java
     │   ├── dto/
-    │   │   ├── request/                  (ProtocolCreateRequest, ProtocolUpdateRequest, ProtocolStepRequest)
-    │   │   └── response/                 (ProtocolResponse, ProtocolStepResponse, PaginatedResponse, ErrorResponse)
+    │   │   ├── request/
+    │   │   └── response/
     │   ├── exception/
-    │   │   ├── GlobalExceptionHandler.java (@RestControllerAdvice returning standardized error envelope)
+    │   │   ├── GlobalExceptionHandler.java
     │   │   └── ResourceNotFoundException.java
     │   ├── repository/
-    │   │   └── ProtocolRepository.java   (Spring Data JPA Interface with custom queries)
+    │   │   └── ProtocolRepository.java
     │   └── service/
-    │       ├── ProtocolService.java      (Interface)
-    │       └── impl/ProtocolServiceImpl.java (Transactional business logic implementation)
+    │       ├── ProtocolService.java
+    │       └── impl/ProtocolServiceImpl.java
     └── test/java/com/sciverse/platform/
-        ├── controller/ProtocolControllerTest.java (@WebMvcTest suite testing HTTP routing & validation)
-        └── service/ProtocolServiceImplTest.java    (Mockito unit suite testing business rules)
+        ├── controller/ProtocolControllerTest.java
+        └── service/ProtocolServiceImplTest.java
 ```
 
 ---
@@ -107,8 +102,7 @@ pcr-protocol-service/
 
 1. **Authentication:** The REST API specifies JWT Bearer Authentication (`Authorization: Bearer <token>`). For the evaluation build, security filters operate in a permissive mock context so the evaluator can test endpoints via Swagger UI without minting JWT keys.
 2. **Soft Delete Integrity:** Protocols are marked `status = DELETED` rather than physically deleted from SQL tables. This ensures historical `runs` and `audit_logs` preserve valid foreign key pointers.
-3. **Hardware Simulation:** Thermocycler hardware execution (temperature ramping, cycle progress) is simulated via background threads without physical serial/bus hardware connections.
-4. **Database Portability:** The service uses Spring Data JPA. By default, it runs on an embedded H2 database (`jdbc:h2:mem:pcrdb`) for zero-setup evaluation, but is completely storage-agnostic and can switch to PostgreSQL via `spring.profiles.active=postgres`.
+3. **Database Portability:** The service uses Spring Data JPA. By default, it runs on an embedded H2 database (`jdbc:h2:mem:pcrdb`) for zero-setup evaluation, but is completely storage-agnostic and can switch to PostgreSQL via `spring.profiles.active=postgres`.
 
 ---
 *Deliverable Documentation links: [API Design](./docs/API_DESIGN.md) | [Database Design](./docs/DATABASE_DESIGN.md) | [Systems Architecture](./docs/SYSTEMS_ARCHITECTURE.md) | [Debugging & Adaptability](./docs/DEBUGGING_AND_ADAPTABILITY.md) | [Offline Sync Bonus](./docs/OFFLINE_SYNC_BONUS.md)*
