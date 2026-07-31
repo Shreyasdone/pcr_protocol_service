@@ -1,11 +1,11 @@
-# Section D & E - Systems Architecture, Algorithms & IoT Communication
+# Section D & E : Systems Architecture, Algorithms & IoT Communication
 ## Sciverse PCR Protocol Management Service
 
 This document covers **Section D (Algorithms & Performance - 15 Marks)** and **Section E (Device Communication - 10 Marks)**. It addresses high-throughput telemetry ingestion, algorithmic complexity optimizations, and real-world IoT device protocol design.
 
 ---
 
-# Section D - Algorithms & Performance
+# Section D : Algorithms & Performance
 
 ## D.1 Problem 1: High-Frequency Telemetry Ingestion (10,000 msgs/sec)
 
@@ -108,7 +108,7 @@ WHERE p.status = 'ACTIVE';
 
 ---
 
-# Section E - Device Communication (10 Marks)
+# Section E : Device Communication (10 Marks)
 
 | # | Topic / Question | Engineering Choice & Technical Rationale |
 |---|---|---|

@@ -1,4 +1,4 @@
-# Sciverse Solutions — PCR Protocol Management Service
+# Sciverse Solutions : PCR Protocol Management Service
 ## Associate Backend Engineer Evaluation Deliverable
 
 **Candidate Evaluation Submission**  
@@ -20,12 +20,12 @@ The complete evaluation documentation has been modularized into focused document
 
 | Document | Section Covered | Score Weight | Description |
 |---|---|---|---|
-| [**`API_DESIGN.md`**](./docs/API_DESIGN.md) | **Section A — API Design** | 15 Marks | Complete REST API specification for 8 endpoints (Protocol CRUD & Run lifecycle), JSON payloads, HTTP status codes, validation, and JWT auth strategy. |
-| [**`DATABASE_DESIGN.md`**](./docs/DATABASE_DESIGN.md) | **Section B — Database Design** | 15 Marks | Relational ER Diagram, 3NF normalization rationale, step ordering, indexed fields, and 5-million run scaling strategy. |
-| **`README.md`** (This file) | **Section C & H — Implementation & Operations** | 25 Marks | Tech stack breakdown, architectural layers, unit test results, quickstart guide, assumptions, and limitations. |
-| [**`SYSTEMS_ARCHITECTURE.md`**](./docs/SYSTEMS_ARCHITECTURE.md) | **Section D & E — Algorithms & IoT Communication** | 25 Marks | High-frequency telemetry ingestion architecture (10,000 msgs/s), $O(N \times M)$ nested loop optimization analysis, MQTT vs REST, and time-series rules. |
-| [**`DEBUGGING_AND_ADAPTABILITY.md`**](./docs/DEBUGGING_AND_ADAPTABILITY.md) | **Section F & G — Debugging & Adaptability** | 20 Marks | In-depth code review of connection-leaking Python snippet, 7-step production latency spike debugging (120ms $\rightarrow$ 6s), and framework onboarding strategies. |
-| [**`OFFLINE_SYNC_BONUS.md`**](./docs/OFFLINE_SYNC_BONUS.md) | **Bonus Challenge — Offline-First Sync** | +10 Marks | Architecture sequence diagram, local SQLite outbox queue, batch idempotency key protocol, vector clock / LWW conflict resolution, and failure recovery. |
+| [**`API_DESIGN.md`**](./docs/API_DESIGN.md) | **Section A : API Design** | 15 Marks | Complete REST API specification for 8 endpoints (Protocol CRUD & Run lifecycle), JSON payloads, HTTP status codes, validation, and JWT auth strategy. |
+| [**`DATABASE_DESIGN.md`**](./docs/DATABASE_DESIGN.md) | **Section B : Database Design** | 15 Marks | Relational ER Diagram, 3NF normalization rationale, step ordering, indexed fields, and 5-million run scaling strategy. |
+| **`README.md`** (This file) | **Section C & H : Implementation & Operations** | 25 Marks | Tech stack breakdown, architectural layers, unit test results, quickstart guide, assumptions, and limitations. |
+| [**`SYSTEMS_ARCHITECTURE.md`**](./docs/SYSTEMS_ARCHITECTURE.md) | **Section D & E : Algorithms & IoT Communication** | 25 Marks | High-frequency telemetry ingestion architecture (10,000 msgs/s), $O(N \times M)$ nested loop optimization analysis, MQTT vs REST, and time-series rules. |
+| [**`DEBUGGING_AND_ADAPTABILITY.md`**](./docs/DEBUGGING_AND_ADAPTABILITY.md) | **Section F & G : Debugging & Adaptability** | 20 Marks | In-depth code review of connection-leaking Python snippet, 7-step production latency spike debugging (120ms $\rightarrow$ 6s), and framework onboarding strategies. |
+| [**`OFFLINE_SYNC_BONUS.md`**](./docs/OFFLINE_SYNC_BONUS.md) | **Bonus Challenge : Offline-First Sync** | +10 Marks | Architecture sequence diagram, local SQLite outbox queue, batch idempotency key protocol, vector clock / LWW conflict resolution, and failure recovery. |
 
 ---
 
@@ -61,7 +61,7 @@ cd .\pcr-protocol-service\
 
 ---
 
-## Section C — Backend Implementation Overview
+## Section C : Backend Implementation Overview
 
 ### Code Architecture (`pcr-protocol-service/`)
 ```

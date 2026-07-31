@@ -1,11 +1,11 @@
-# Section F & G - Debugging, Code Review & Adaptability
+# Section F & G : Debugging, Code Review & Adaptability
 ## Sciverse PCR Protocol Management Service
 
 This document covers **Section F (Debugging & Code Review - 10 Marks)** and **Section G (Learning & Adaptability - 10 Marks)**.
 
 ---
 
-# Section F - Debugging & Code Review (10 Marks)
+# Section F : Debugging & Code Review (10 Marks)
 
 ## F.1 Code Review of `create_user`
 
@@ -115,7 +115,7 @@ flowchart TD
 
 ---
 
-# Section G - Learning & Adaptability (10 Marks)
+# Section G : Learning & Adaptability (10 Marks)
 
 ## Scenario 1: Java Spring Boot $\rightarrow$ Python FastAPI (1-Week Onboarding)
 

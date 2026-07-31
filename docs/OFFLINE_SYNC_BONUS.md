@@ -1,4 +1,4 @@
-# Bonus Challenge - Offline-First Device Sync Architecture (+10 Marks)
+# Bonus Challenge : Offline-First Device Sync Architecture (+10 Marks)
 ## Sciverse PCR Protocol Management Service
 
 This document details the architectural design for maintaining lab thermocycler instrument operation during internet connectivity outages, storing data locally on device, and synchronizing with central cloud databases once network connection is restored.
