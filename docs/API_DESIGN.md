@@ -1,4 +1,4 @@
-# Section A — API Design (15 Marks)
+# Section A - API Design (15 Marks)
 ## Sciverse PCR Protocol Management Service
 
 This document provides the complete API specification for managing PCR Protocols and Run execution lifecycles in accordance with REST principles, robust input validation, and standardized error handling.

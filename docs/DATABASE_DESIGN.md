@@ -1,4 +1,4 @@
-# Section B — Database Design (15 Marks)
+# Section B - Database Design (15 Marks)
 ## Sciverse PCR Protocol Management Service
 
 This document presents the complete relational database architecture for the control plane system, covering all 6 mandatory domain modules: **Users**, **Devices**, **Protocols**, **Runs**, **Results**, and **Audit Logs**.
