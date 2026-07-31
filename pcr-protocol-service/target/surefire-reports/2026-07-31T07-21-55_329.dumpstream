@@ -1,0 +1,5 @@
+# Created at 2026-07-31T07:21:55.494
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Projects\Sciverse_Solutions\pcr-protocol-service\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
